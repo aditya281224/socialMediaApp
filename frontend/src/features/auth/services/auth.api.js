@@ -20,7 +20,7 @@ export async function register(userName, email, password) {
 
 export async function login(userName, password) {
   try {
-    const response =await axios.post("/login",
+    const response =await api.post("/login",
       {
         userName,
         password,
@@ -30,5 +30,15 @@ export async function login(userName, password) {
     return response.data;
   } catch (err) {
     throw err;
+  }
+}
+
+export async function getMe(){
+  try{
+    const response = await api.get("/get-Me")
+  return res.data
+  }
+  catch(err){
+    throw err
   }
 }

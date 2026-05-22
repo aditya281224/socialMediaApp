@@ -9,15 +9,7 @@ const Register = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    await axios.post("http://localhost:3000/api/auth/register", {
-      userName,
-      email,
-      password,
-    },{
-      withCredentials:true
-    }).then(res=>{
-      console.log(res.data)
-    })
+    
   }
 
   return (
