@@ -10,8 +10,8 @@ const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  const {handleLogin,loading} = useAuth();
-  const navigate = useNavigate();
+  const {user,handleLogin,loading} = useAuth();
+  // const navigate = useNavigate();
 
   if(loading){
     return (
@@ -19,12 +19,16 @@ const Login = () => {
     )
   }
 
+
+
    async function handleSubmit(e) {
     e.preventDefault();
     await handleLogin(userName,password)
-    .then(res=>{
-      navigate("/")
-    })
+
+    console.log("User Logged in")
+    // .then(res=>{
+    //   navigate("/")
+    
   }
 
   return (
@@ -46,7 +50,7 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button>Login</button>
+          <button className='button primary-button'>Login</button>
         </form>
         <p>
           Don't have an account?{" "}
