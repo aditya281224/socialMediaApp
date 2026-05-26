@@ -11,23 +11,20 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const {user,handleLogin,loading} = useAuth();
-  // const navigate = useNavigate();
+ const navigate = useNavigate();
 
   if(loading){
     return (
       <h1>Loading...</h1>
-    )
+    ) 
   }
 
 
 
    async function handleSubmit(e) {
     e.preventDefault();
-    await handleLogin(userName,password)
-
-    console.log("User Logged in")
-    // .then(res=>{
-    //   navigate("/")
+    await handleLogin(userName,password).then(res=>{
+    navigate("/")})
     
   }
 
@@ -54,7 +51,7 @@ const Login = () => {
         </form>
         <p>
           Don't have an account?{" "}
-          <Link className="toggleAuthForm" to="/register">
+          <Link to="/register">
             Register
           </Link>
         </p>
